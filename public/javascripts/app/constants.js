@@ -1,129 +1,184 @@
 app.constant('YearsConst', [
-		{code: 2012, label: 2012},
-		{code: 2013, label: 2013},
-		{code: 2014, label: 2014},
-		{code: 2015, label: 2015}
-	])
-	.constant('CraYearsConst', [
-		{code: '1', label: '2012'},
-		{code: '2', label: '2013'},
-		{code: '3', label: '2014'},
-		{code: '4', label: '2015'}
-	])
-	.constant('MonthsConst', [
-		{'code': 1, 'label': _.str.capitalize(moment('1', 'MM').format('MMMM'))},
-		{'code': 2, 'label': _.str.capitalize(moment('2', 'MM').format('MMMM'))},
-		{'code': 3, 'label': _.str.capitalize(moment('3', 'MM').format('MMMM'))},
-		{'code': 4, 'label': _.str.capitalize(moment('4', 'MM').format('MMMM'))},
-		{'code': 5, 'label': _.str.capitalize(moment('5', 'MM').format('MMMM'))},
-		{'code': 6, 'label': _.str.capitalize(moment('6', 'MM').format('MMMM'))},
-		{'code': 7, 'label': _.str.capitalize(moment('7', 'MM').format('MMMM'))},
-		{'code': 8, 'label': _.str.capitalize(moment('8', 'MM').format('MMMM'))},
-		{'code': 9, 'label': _.str.capitalize(moment('9', 'MM').format('MMMM'))},
-		{'code': 10, 'label': _.str.capitalize(moment('10', 'MM').format('MMMM'))},
-		{'code': 11, 'label': _.str.capitalize(moment('11', 'MM').format('MMMM'))},
-		{'code': 12, 'label': _.str.capitalize(moment('12', 'MM').format('MMMM'))}
-	])
-	.constant('RolesConst', {
-		'EMPLOYEE': 'employee',
-		'PRODUCTION': 'production',
-		'ADMIN': 'admin'
-	})
-	.constant('ClaimTypeConst', [
-		{code: 'FUEL', label: 'Carburant'},
-		{code: 'TOLL', label: 'Péage'},
-		{code: 'PARKING', label: 'Parking'},
-		{code: 'PUBLIC_TRANSPORT', label: 'Métro, bus'},
-		{code: 'TRAIN_PLANE', label: 'Train, avion'},
-		{code: 'TAXI', label: 'Taxi'},
-		{code: 'RENT_CAR', label: 'Location de voiture'},
-		{code: 'BREAKFAST', label: 'Petit déjeuner'},
-		{code: 'LUNCH', label: 'Déjeuner'},
-		{code: 'DINER', label: 'Diner'},
-		{code: 'HOSTEL', label: 'Hotels'},
-		{code: 'INVITATION', label: 'Invitations'},
-		{code: 'CONSUMPTION', label: 'Consommations'},
-		{code: 'PHONE', label: 'Tél, poste'},
-		{code: 'MISCELLANEOUS', label: 'Divers'}
-	])
-	.constant('CarBrandConst', [
-		{code: 'ALFA_ROMEO', label: 'Alfa Romeo'},
-		{code: 'AUDI', label: 'Audi'},
-		{code: 'BMW', label: 'BMW'},
-		{code: 'CHRYSLER', label: 'Chrysler'},
-		{code: 'CITROËN', label: 'Citroën'},
-		{code: 'DACIA', label: 'Dacia'},
-		{code: 'FERRARI', label: 'Ferrari'},
-		{code: 'FIAT', label: 'Fiat'},
-		{code: 'FORD', label: 'Ford'},
-		{code: 'HONDA', label: 'Honda'},
-		{code: 'HYUNDAI', label: 'Hyundai'},
-		{code: 'JAGUAR', label: 'Jaguar'},
-		{code: 'LADA', label: 'Lada'},
-		{code: 'LAMBORGHINI', label: 'Lamborghini'},
-		{code: 'LANCIA', label: 'Lancia'},
-		{code: 'LAND_ROVER', label: 'Land Rover'},
-		{code: 'MASERATI', label: 'Maserati'},
-		{code: 'MAZDA', label: 'Mazda'},
-		{code: 'MERCEDES', label: 'Mercedes'},
-		{code: 'MITSUBISHI', label: 'Mitsubishi'},
-		{code: 'NISSAN', label: 'Nissan'},
-		{code: 'OPEL', label: 'Opel'},
-		{code: 'PEUGEOT', label: 'Peugeot'},
-		{code: 'PORSCHE', label: 'Porsche'},
-		{code: 'RENAULT', label: 'Renault'},
-		{code: 'ROLLS_ROYCE', label: 'Rolls Royce'},
-		{code: 'ROVER', label: 'Rover'},
-		{code: 'SAAB', label: 'Saab'},
-		{code: 'SEAT', label: 'Seat'},
-		{code: 'SKODA', label: 'Skoda'},
-		{code: 'SUBARU', label: 'Subara'},
-		{code: 'SUZUKI', label: 'Suzuki'},
-		{code: 'TOYOTA', label: 'Toyota'},
-		{code: 'VAUXHALL', label: 'Vauxhall'},
-		{code: 'VOLKSWAGEN', label: 'Volkswagen'},
-		{code: 'VOLVO', label: 'Volvo'}
-	])
-	.constant('MotorcycleBrandConst', [
-		{code: 'BMW', label: 'BMW'},
-		{code: 'DUCATI', label: 'Ducati'},
-		{code: 'HONDA', label: 'Honda'},
-		{code: 'KAWASAKI', label: 'Kawasaki'},
-		{code: 'KTM', label: 'KTM'},
-		{code: 'SUZUKI', label: 'Suzuki'},
-		{code: 'YAMAHA', label: 'Yamaha'},
-		{code: 'GUZZI', label: 'Guzzi'},
-		{code: 'PIAGGIO', label: 'PIAGGIO'},
-		{code: 'MARTIN', label: 'MARTIN'},
-		{code: 'MBK', label: 'MBK'},
-		{code: 'VESPA', label: 'VESPA'}
-	])
-	.constant('VehicleCarPowerConst', [
-		{code: 1, label: '1'},
-		{code: 2, label: '2'},
-		{code: 3, label: '3'},
-		{code: 4, label: '4'},
-		{code: 5, label: '5'},
-		{code: 6, label: '6'},
-		{code: 7, label: '7'},
-		{code: 8, label: '8'},
-		{code: 9, label: '9'},
-		{code: 10, label: '10'},
-		{code: 11, label: '11'},
-		{code: 12, label: '12'},
-		{code: 13, label: '13'},
-		{code: 14, label: '14'},
-		{code: 15, label: '15'}
-	])
-	.constant('VehicleMotorcyclePowerConst', [
-		{code: 0, label: 'De 0 à 500'},
-		{code: 501, label: 'Plus de 500'}
-	])
-	.constant('AbsenceTypeConst', [
-		{code: 'all', label: 'Tout'},
-		{code: 'cp', label: 'CP'},
-		{code: 'rtt', label: 'RTT'},
-		{code: 'other', label: 'Autres'}
-	]);
+        {code: 2012, label: 2012},
+        {code: 2013, label: 2013},
+        {code: 2014, label: 2014},
+        {code: 2015, label: 2015},
+        {code: 2016, label: 2016},
+        {code: 2017, label: 2017},
+        {code: 2018, label: 2018},
+        {code: 2019, label: 2019},
+        {code: 2020, label: 2020},
+        {code: 2021, label: 2021},
+        {code: 2022, label: 2022},
+        {code: 2023, label: 2023},
+        {code: 2024, label: 2024},
+        {code: 2025, label: 2025},
+        {code: 2026, label: 2026},
+        {code: 2027, label: 2027},
+        {code: 2028, label: 2028},
+        {code: 2029, label: 2029},
+        {code: 2030, label: 2030},
+        {code: 2031, label: 2031},
+        {code: 2032, label: 2032},
+        {code: 2033, label: 2033},
+        {code: 2034, label: 2034},
+        {code: 2035, label: 2035},
+        {code: 2036, label: 2036},
+        {code: 2037, label: 2037},
+        {code: 2038, label: 2038},
+        {code: 2039, label: 2039},
+        {code: 2040, label: 2040},
+        {code: 2041, label: 2041},
+        {code: 2042, label: 2042}
+
+    ])
+    .constant('CraYearsConst', [
+        {code: '1', label: '2012'},
+        {code: '2', label: '2013'},
+        {code: '3', label: '2014'},
+        {code: '4', label: '2015'},
+        {code: '5', label: '2016'},
+        {code: '6', label: '2017'},
+        {code: '7', label: '2018'},
+        {code: '8', label: '2019'},
+        {code: '9', label: '2020'},
+        {code: '10', label: '2021'},
+        {code: '11', label: '2022'},
+        {code: '12', label: '2023'},
+        {code: '13', label: '2024'},
+        {code: '14', label: '2025'},
+        {code: '15', label: '2026'},
+        {code: '16', label: '2027'},
+        {code: '17', label: '2028'},
+        {code: '18', label: '2029'},
+        {code: '19', label: '2030'},
+        {code: '20', label: '2031'},
+        {code: '21', label: '2032'},
+        {code: '22', label: '2033'},
+        {code: '23', label: '2034'},
+        {code: '24', label: '2035'},
+        {code: '25', label: '2036'},
+        {code: '26', label: '2037'},
+        {code: '27', label: '2038'},
+        {code: '28', label: '2039'},
+        {code: '29', label: '2040'},
+        {code: '30', label: '2041'},
+        {code: '31', label: '2042'}
+    ])
+    .constant('MonthsConst', [
+        {'code': 1, 'label': _.str.capitalize(moment('1', 'MM').format('MMMM'))},
+        {'code': 2, 'label': _.str.capitalize(moment('2', 'MM').format('MMMM'))},
+        {'code': 3, 'label': _.str.capitalize(moment('3', 'MM').format('MMMM'))},
+        {'code': 4, 'label': _.str.capitalize(moment('4', 'MM').format('MMMM'))},
+        {'code': 5, 'label': _.str.capitalize(moment('5', 'MM').format('MMMM'))},
+        {'code': 6, 'label': _.str.capitalize(moment('6', 'MM').format('MMMM'))},
+        {'code': 7, 'label': _.str.capitalize(moment('7', 'MM').format('MMMM'))},
+        {'code': 8, 'label': _.str.capitalize(moment('8', 'MM').format('MMMM'))},
+        {'code': 9, 'label': _.str.capitalize(moment('9', 'MM').format('MMMM'))},
+        {'code': 10, 'label': _.str.capitalize(moment('10', 'MM').format('MMMM'))},
+        {'code': 11, 'label': _.str.capitalize(moment('11', 'MM').format('MMMM'))},
+        {'code': 12, 'label': _.str.capitalize(moment('12', 'MM').format('MMMM'))}
+    ])
+    .constant('RolesConst', {
+        'EMPLOYEE': 'employee',
+        'PRODUCTION': 'production',
+        'ADMIN': 'admin'
+    })
+    .constant('ClaimTypeConst', [
+        {code: 'FUEL', label: 'Carburant'},
+        {code: 'TOLL', label: 'Péage'},
+        {code: 'PARKING', label: 'Parking'},
+        {code: 'PUBLIC_TRANSPORT', label: 'Métro, bus'},
+        {code: 'TRAIN_PLANE', label: 'Train, avion'},
+        {code: 'TAXI', label: 'Taxi'},
+        {code: 'RENT_CAR', label: 'Location de voiture'},
+        {code: 'BREAKFAST', label: 'Petit déjeuner'},
+        {code: 'LUNCH', label: 'Déjeuner'},
+        {code: 'DINER', label: 'Diner'},
+        {code: 'HOSTEL', label: 'Hotels'},
+        {code: 'INVITATION', label: 'Invitations'},
+        {code: 'CONSUMPTION', label: 'Consommations'},
+        {code: 'PHONE', label: 'Tél, poste'},
+        {code: 'MISCELLANEOUS', label: 'Divers'}
+    ])
+    .constant('CarBrandConst', [
+        {code: 'ALFA_ROMEO', label: 'Alfa Romeo'},
+        {code: 'AUDI', label: 'Audi'},
+        {code: 'BMW', label: 'BMW'},
+        {code: 'CHRYSLER', label: 'Chrysler'},
+        {code: 'CITROËN', label: 'Citroën'},
+        {code: 'DACIA', label: 'Dacia'},
+        {code: 'FERRARI', label: 'Ferrari'},
+        {code: 'FIAT', label: 'Fiat'},
+        {code: 'FORD', label: 'Ford'},
+        {code: 'HONDA', label: 'Honda'},
+        {code: 'HYUNDAI', label: 'Hyundai'},
+        {code: 'JAGUAR', label: 'Jaguar'},
+        {code: 'LADA', label: 'Lada'},
+        {code: 'LAMBORGHINI', label: 'Lamborghini'},
+        {code: 'LANCIA', label: 'Lancia'},
+        {code: 'LAND_ROVER', label: 'Land Rover'},
+        {code: 'MASERATI', label: 'Maserati'},
+        {code: 'MAZDA', label: 'Mazda'},
+        {code: 'MERCEDES', label: 'Mercedes'},
+        {code: 'MITSUBISHI', label: 'Mitsubishi'},
+        {code: 'NISSAN', label: 'Nissan'},
+        {code: 'OPEL', label: 'Opel'},
+        {code: 'PEUGEOT', label: 'Peugeot'},
+        {code: 'PORSCHE', label: 'Porsche'},
+        {code: 'RENAULT', label: 'Renault'},
+        {code: 'ROLLS_ROYCE', label: 'Rolls Royce'},
+        {code: 'ROVER', label: 'Rover'},
+        {code: 'SAAB', label: 'Saab'},
+        {code: 'SEAT', label: 'Seat'},
+        {code: 'SKODA', label: 'Skoda'},
+        {code: 'SUBARU', label: 'Subara'},
+        {code: 'SUZUKI', label: 'Suzuki'},
+        {code: 'TOYOTA', label: 'Toyota'},
+        {code: 'VAUXHALL', label: 'Vauxhall'},
+        {code: 'VOLKSWAGEN', label: 'Volkswagen'},
+        {code: 'VOLVO', label: 'Volvo'}
+    ])
+    .constant('MotorcycleBrandConst', [
+        {code: 'BMW', label: 'BMW'},
+        {code: 'DUCATI', label: 'Ducati'},
+        {code: 'HONDA', label: 'Honda'},
+        {code: 'KAWASAKI', label: 'Kawasaki'},
+        {code: 'KTM', label: 'KTM'},
+        {code: 'SUZUKI', label: 'Suzuki'},
+        {code: 'YAMAHA', label: 'Yamaha'},
+        {code: 'GUZZI', label: 'Guzzi'},
+        {code: 'PIAGGIO', label: 'PIAGGIO'},
+        {code: 'MARTIN', label: 'MARTIN'},
+        {code: 'MBK', label: 'MBK'},
+        {code: 'VESPA', label: 'VESPA'}
+    ])
+    .constant('VehicleCarPowerConst', [
+        {code: 1, label: '1'},
+        {code: 2, label: '2'},
+        {code: 3, label: '3'},
+        {code: 4, label: '4'},
+        {code: 5, label: '5'},
+        {code: 6, label: '6'},
+        {code: 7, label: '7'},
+        {code: 8, label: '8'},
+        {code: 9, label: '9'},
+        {code: 10, label: '10'},
+        {code: 11, label: '11'},
+        {code: 12, label: '12'},
+        {code: 13, label: '13'},
+        {code: 14, label: '14'},
+        {code: 15, label: '15'}
+    ])
+    .constant('VehicleMotorcyclePowerConst', [
+        {code: 0, label: 'De 0 à 500'},
+        {code: 501, label: 'Plus de 500'}
+    ])
+    .constant('AbsenceTypeConst', [
+        {code: 'all', label: 'Tout'},
+        {code: 'cp', label: 'CP'},
+        {code: 'rtt', label: 'RTT'},
+        {code: 'other', label: 'Autres'}
+    ]);
 
 
