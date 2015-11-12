@@ -80,8 +80,9 @@ app.controller('BackOfficeUserMissionsCtrl', ['$scope', '$http', '$log', '$locat
 					$scope.loadCustomerMissions(am.mission);
 					$scope.form.startDate = moment(am.startDate).format("DD/MM/YYYY");
 					$scope.form.endDate = am.endDate ? moment(am.endDate).format("DD/MM/YYYY") : null;
-					$scope.form.zoneFee = am.allowanceType === "ZONE";
-					$scope.form.feeAmount = am.feeAmount;
+					$scope.form.feeZone = am.allowanceType === "ZONE";
+					$scope.form.feeAmount = am.allowanceType === "ZONE" ? null : am.feeAmount;
+					
 
 				});
 

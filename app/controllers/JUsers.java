@@ -164,6 +164,9 @@ public class JUsers extends Controller {
 			if(StringUtils.isBlank(this.feeAmount) && !Boolean.TRUE.equals(this.feeZone)){
 				errors.add(new ValidationError("fee", "Vous devez sélectionnez un type de frais."));
 			}
+			if(!StringUtils.isBlank(this.feeAmount) && Boolean.TRUE.equals(this.feeZone)){
+				errors.add(new ValidationError("fee", "Vous devez sélectionnez un seul type de frais (Zone ou Séjour)."));
+			}
 			return errors.isEmpty() ? null : errors;
 		}
 
