@@ -98,4 +98,8 @@ public class JAbsenceDay extends Model {
 		final Query<JAbsenceDay> q = q().field("absenceId").equal(absence.id);
 		MorphiaPlugin.ds().delete(q, WriteConcern.ACKNOWLEDGED);
 	}
+	public static void delete(final JUser user){
+		final Query<JAbsenceDay> q = q().field("userId").equal(user.id);
+		MorphiaPlugin.ds().delete(q, WriteConcern.ACKNOWLEDGED);
+	}
 }

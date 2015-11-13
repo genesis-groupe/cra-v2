@@ -111,7 +111,23 @@ app.controller('BackOfficeUsersCtrl', ['$scope', '$http', '$log', '$location', '
                         $rootScope.onSuccess("Le mot de passe de l'utilisateur " + username + " a été réinitialisé.");
                         $scope.user = {};
                         $scope.loadUsers();
-                    })
+                    });
+            }
+        };
+
+        $scope.delete = function(username){
+            if (window.confirm("Êtes-vous sûr de vouloir supprimer l'utilisateur " + username + " ?")) {
+            var route = jsRoutes.controllers.JUsers.delete(username);
+                $http({
+                    'method': route.method,
+                    'url': route.url,
+                    'cache': false
+                })
+                    .success(function (result) {
+                        $rootScope.onSuccess("L'utilisateur " + username + " a été supprimé.");
+                        $scope.user = {};
+                        $scope.loadUsers();
+                    });
             }
         };
 

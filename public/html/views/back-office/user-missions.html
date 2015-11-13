@@ -10,8 +10,8 @@
 	<div class="row-fluid">
 		<div class="span6 scrollable">
 			<div class="row-fluid table-line" data-ng-repeat="am in affectedMissions">
-				<div class="span2">
-					<span>{{am.mission.code}}</span>
+				<div class="span3">
+					<span title="{{am.mission.customerName}}">{{am.mission.code}}</span>
 				</div>
 				<div class="span2">
 					<span>{{am.startDate | date}}</span>
@@ -22,7 +22,7 @@
 				<div class="span2">
 					<span>{{am.allowanceType}}</span>
 				</div>
-				<div class="span2">
+				<div class="span1">
 					<span>{{am.feeAmount}}</span>
 				</div>
 				<div class="span2">
@@ -31,7 +31,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="span6">
+		<div class="span5">
 			<form class="form-horizontal well well-small slim" id="affectedMissionsForm" data-ng-submit="save()">
 				<fieldset>
 

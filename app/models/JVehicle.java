@@ -160,4 +160,8 @@ public class JVehicle extends Model {
 	public static JVehicle fetch(final ObjectId userId, final Integer year, final Integer month) {
 		return existQuery(userId, TimeUtils.lastDateOfMonth(year, month)).get();
 	}
+
+	public static void delete(JUser user){
+		MorphiaPlugin.ds().delete(byUserId(user.id));
+	}
 }

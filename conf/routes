@@ -71,6 +71,7 @@ GET           /users/:username/customeAffectedMissions                     contr
 POST          /users/:username/resetPwd                                    controllers.JUsers.resetPwd(username)
 DELETE        /users/:username/unassignMission/:missionId                  controllers.JUsers.unassignMission(username: String, missionId: String)
 GET           /users/:username                                             controllers.JUsers.fetch(username)
+DELETE        /users/:username                                             controllers.JUsers.delete(username)
 GET           /users                                                       controllers.JUsers.all()
 POST          /users/affectedMission                                       controllers.JUsers.saveAffectedMission()
 POST          /users                                                       controllers.JUsers.save()

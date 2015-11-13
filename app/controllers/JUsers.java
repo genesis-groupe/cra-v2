@@ -118,6 +118,24 @@ public class JUsers extends Controller {
         return created("Mission sauvegardée");
     }
 
+    @ResponseCache.NoCacheResponse
+    public static Result delete(final String username) {
+        final JUser user = JUser.byUsername(username);
+        // Absence
+        JAbsence.deleteByUser(user);
+        // Part Time
+        JPartTime.deleteByUser(user);
+        // Claim
+        JClaim.delete(user);
+        // Cra
+        JCra.delete(user);
+        // Vehicle
+        JVehicle.delete(user);
+        // User
+        JUser.delete(user);
+        return ok();
+    }
+
     public static class UserForm {
         public ObjectId id;
         public String username;

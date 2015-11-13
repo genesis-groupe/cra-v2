@@ -309,4 +309,8 @@ public class JUser extends Model implements Subject {
         });
         save(user);
     }
+
+    public static void delete(final JUser user) {
+        MorphiaPlugin.ds().delete(queryToFindMe(user.id),WriteConcern.ACKNOWLEDGED);
+    }
 }

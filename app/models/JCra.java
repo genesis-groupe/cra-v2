@@ -147,6 +147,15 @@ public class JCra extends Model {
         MorphiaPlugin.ds().delete(queryByUserYearMonth(userId, year, month), WriteConcern.ACKNOWLEDGED);
     }
 
+    public static void delete(final JUser user) {
+        JDay.delete(user);
+        final List<JCra> cras = find(user.id);
+        for (JCra cra : cras) {
+            DbFile.remove(cra.fileId);
+        }
+        MorphiaPlugin.ds().delete(queryByUserId(user.id), WriteConcern.ACKNOWLEDGED);
+    }
+
     public static void unapplyPartTime(final JPartTime partTime) {
         final Query<JCra> q = queryByUserId(partTime.userId)
                 .field("year").greaterThanOrEq(partTime.startDate.getYear())
