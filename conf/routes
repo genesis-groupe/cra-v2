@@ -69,11 +69,11 @@ GET           /users/:username/affectedMissions/:startDate/:endDate        contr
 GET           /users/:username/affectedMissions                            controllers.JUsers.allAffectedMissions(username: String)
 GET           /users/:username/customeAffectedMissions                     controllers.JUsers.customerAffectedMissions(username: String)
 POST          /users/:username/resetPwd                                    controllers.JUsers.resetPwd(username)
+DELETE        /users/:username/unassignMission/:missionId                  controllers.JUsers.unassignMission(username: String, missionId: String)
 GET           /users/:username                                             controllers.JUsers.fetch(username)
 GET           /users                                                       controllers.JUsers.all()
-POST          /users/AffectedMission                                       controllers.JUsers.saveAffectedMission()
+POST          /users/affectedMission                                       controllers.JUsers.saveAffectedMission()
 POST          /users                                                       controllers.JUsers.save()
-
 
 # Account
 # ~~~~
@@ -121,4 +121,3 @@ GET           /assets/javascripts/routes                                   contr
 
 # Map static resources from the /public folder to the /assets URL path
 GET           /assets/*file                                                controllers.Assets.at(path="/public", file)
-#GET     /public/*file                                               controllers.Assets.at(path="/public", file)

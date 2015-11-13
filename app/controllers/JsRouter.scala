@@ -61,6 +61,7 @@ object JsRouter extends Controller {
           JUsers.fetch,
           JUsers.save,
           JUsers.resetPwd,
+          JUsers.unassignMission,
 
           JAccounts.fetch,
           JAccounts.update,

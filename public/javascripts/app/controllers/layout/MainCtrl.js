@@ -36,7 +36,6 @@ app.controller('AlertCtrl', ['$scope', '$rootScope', '$timeout', '$log',
 		$scope.closeSuccess = closeSuccess;
 
 		$scope.$on('event:error', function (evt, err) {
-			$log.error('Erreur', err);
 			var now = moment().valueOf();
 			$rootScope.errors.push({
 				msg: _(err.data).filter(function (c) {
