@@ -31,6 +31,7 @@ import java.util.List;
  */
 @Entity("Claim")
 @Indexes({
+        @Index("userId"),
         @Index("userId, year, month")
 })
 public class JClaim extends Model implements MongoModel {
@@ -74,7 +75,7 @@ public class JClaim extends Model implements MongoModel {
         return q().field(Mapper.ID_KEY).equal(id);
     }
 
-    private static Query<JClaim> queryToFindMeBuUser(final JUser user) {
+    private static Query<JClaim> queryToFindMeByUser(final JUser user) {
         return q().field("userId").equal(user.id);
     }
 
@@ -172,13 +173,17 @@ public class JClaim extends Model implements MongoModel {
         return claims;
     }
 
+    public static Boolean exist(JUser user){
+        return MorphiaPlugin.ds().getCount(queryToFindMeByUser(user)) > 0;
+    }
+
     public static ObjectId delete(final String id) {
         delete(queryToFindMe(ObjectId.massageToObjectId(id)));
         return ObjectId.massageToObjectId(id);
     }
 
     public static void delete(final JUser user) {
-        delete(queryToFindMeBuUser(user));
+        delete(queryToFindMeByUser(user));
     }
 
     public static ImmutableList<JClaim> history(final ObjectId userId, final Integer year, final Integer month) {

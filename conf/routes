@@ -69,7 +69,7 @@ GET           /users/:username/affectedMissions/:startDate/:endDate        contr
 GET           /users/:username/affectedMissions                            controllers.JUsers.allAffectedMissions(username: String)
 GET           /users/:username/customeAffectedMissions                     controllers.JUsers.customerAffectedMissions(username: String)
 POST          /users/:username/resetPwd                                    controllers.JUsers.resetPwd(username)
-DELETE        /users/:username/unassignMission/:missionId                  controllers.JUsers.unassignMission(username: String, missionId: String)
+DELETE        /users/:username/unAssignMission/:missionId                  controllers.JUsers.unAssignMission(username: String, missionId: String)
 GET           /users/:username                                             controllers.JUsers.fetch(username)
 DELETE        /users/:username                                             controllers.JUsers.delete(username)
 GET           /users                                                       controllers.JUsers.all()

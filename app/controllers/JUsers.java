@@ -90,14 +90,17 @@ public class JUsers extends Controller {
     }
 
     @ResponseCache.NoCacheResponse
-    public static Result unassignMission(final String username, final String missionId) {
+    public static Result unAssignMission(final String username, final String missionId) {
         final JUser user = JUser.byUsername(username);
         final JMission mission = JMission.fetch(ObjectId.massageToObjectId(missionId));
         final List<JCra> cras = JCra.find(user.id);
         for (JCra cra : cras) {
             if (JDay.fetch(cra, mission).size() > 0) {
-                return internalServerError(toJson("La mission est déjà utilisé dans un CRA, désaffectation impossible"));
+                return internalServerError(toJson("La mission est déjà utilisée dans un CRA, désaffectation impossible"));
             }
+        }
+        if(JClaim.exist(user)){
+            return internalServerError(toJson("Des frais de déplacement existent pour cette mission, désaffectation impossible"));
         }
         JUser.unassignMission(username, missionId);
         return ok();
