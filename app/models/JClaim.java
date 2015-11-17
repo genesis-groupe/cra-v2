@@ -101,8 +101,6 @@ public class JClaim extends Model implements MongoModel {
     }
 
     private JClaim computeMissionAllowance(final List<JAffectedMission> affectedMissions) {
-        //final JMission mission = JMission.fetch(this.missionId);
-        //final ObjectId missionId = this.missionId;
         final JAffectedMission affectedMission = Iterables.find(affectedMissions, new Predicate<JAffectedMission>() {
             @Override
             public boolean apply(@Nullable final JAffectedMission affectedMission) {

@@ -4,8 +4,8 @@ import play.api.Routes
 import play.api.mvc.{Action, Controller}
 
 /**
- * @author f.patin
- */
+  * @author f.patin
+  */
 object JsRouter extends Controller {
   def javascriptRoutes = Action {
     implicit request =>
@@ -76,7 +76,10 @@ object JsRouter extends Controller {
           JVehicles.active,
           JVehicles.history,
           JVehicles.deactivate,
-          JVehicles.save
+          JVehicles.save,
+
+          JParameters.fetch,
+          JParameters.save
 
         )
       ).as("text/javascript")

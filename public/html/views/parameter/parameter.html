@@ -1,1 +1,112 @@
-<h1>Paramétrage</h1>
+<div data-ng-controller="ParameterCtrl" class="span10 offset2">
+    <form class="form-horizontal well well-small slim" data-ng-submit="save()">
+        <div class="row-fluid">
+            <div class="span5">
+                <div class="control-group" data-ng-class="{'error': errors.zoneAmount}">
+                    <label class="control-label" for="zoneAmount">Forfait de zone <i class="icon-mandatory"></i></label>
+
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="input-mini" data-ng-model="current.zoneAmount" id="zoneAmount"
+                                   pattern="\d{1,4}([,.]\d{0,2})?"><span class="add-on">€</span>
+                        </div>
+                        <span class="help-block"><em>{{errors.zoneAmount}}</em></span>
+                    </div>
+                </div>
+            </div>
+            <div class="span7">
+                <div class="control-group">
+                    <label class="control-label" for="startDate">A partir de  <i class="icon-mandatory"></i></label>
+
+                    <div class="controls">
+                        <input type="text" class="span5" id="startDate" required="required" data-b-datepicker data-ng-model="current.startDate">
+                        <span class="help-block"><em>{{errors.startDate}}</em></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span6">
+                <h6>Voiture</h6>
+
+                <div class="control-group" data-ng-class="{'error': errors.car0}">
+                    <label class="control-label" for="car0">< 5 ch <i class="icon-mandatory"></i></label>
+
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="input-mini" data-ng-model="current.car[0]" id="car0"
+                                   pattern="\d{1,4}([,.]\d{0,2})?"><span class="add-on">€</span>
+                        </div>
+                        <span class="help-block"><em>{{errors.car0}}</em></span>
+                    </div>
+                </div>
+                <div class="control-group" data-ng-class="{'error': errors.car5}">
+                    <label class="control-label" for="form.car5">5 ch <= x < 8 ch <i class="icon-mandatory"></i></label>
+
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="input-mini" data-ng-model="current.car[5]" id="form.car5"
+                                   pattern="\d{1,4}([,.]\d{0,2})?"><span class="add-on">€</span>
+                        </div>
+                        <span class="help-block"><em>{{errors.car5}}</em></span>
+                    </div>
+                </div>
+                <div class="control-group" data-ng-class="{'error': errors.car8}">
+                    <label class="control-label" for="car8">8 ch <= x < 11 ch <i class="icon-mandatory"></i></label>
+
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="input-mini" data-ng-model="current.car[8]" id="car8"
+                                   pattern="\d{1,4}([,.]\d{0,2})?"><span class="add-on">€</span>
+                        </div>
+                        <span class="help-block"><em>{{errors.car8}}</em></span>
+                    </div>
+                </div>
+                <div class="control-group" data-ng-class="{'error': errors.car11}">
+                    <label class="control-label" for="car11">>= 11 ch <i class="icon-mandatory"></i></label>
+
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="input-mini" data-ng-model="current.car[11]" id="car11"
+                                   pattern="\d{1,4}([,.]\d{0,2})?"><span class="add-on">€</span>
+                        </div>
+                        <span class="help-block"><em>{{errors.car11}}</em></span>
+                    </div>
+                </div>
+            </div>
+            <div class="span6">
+                <h6>Moto</h6>
+
+                <div class="control-group" data-ng-class="{'error': errors.motorcycle0}">
+                    <label class="control-label" for="motorcycle0"><= 500 cm3 <i class="icon-mandatory"></i></label>
+
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="input-mini" data-ng-model="current.motorcycle[0]" id="motorcycle0"
+                                   pattern="\d{1,4}([,.]\d{0,2})?"><span class="add-on">€</span>
+                        </div>
+                        <span class="help-block"><em>{{errors.motorcycle0}}</em></span>
+                    </div>
+                </div>
+                <div class="control-group" data-ng-class="{'error': errors.motorcycle501}">
+                    <label class="control-label" for="motorcycle501">> 500 cm3 <i class="icon-mandatory"></i></label>
+
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="text" class="input-mini" data-ng-model="current.motorcycle[501]" id="motorcycle501"
+                                   pattern="\d{1,4}([,.]\d{0,2})?"><span class="add-on">€</span>
+                        </div>
+                        <span class="help-block"><em>{{errors.motorcycle501}}</em></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row-fluid">
+
+            <div class="form-actions pull-right">
+                <button type="submit" class="btn btn-primary">Sauvegarder</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -109,6 +109,10 @@ POST          /import/users                                                contr
 POST          /import/customers                                            controllers.Imports.customers()
 POST          /import/missions                                             controllers.Imports.missions()
 
+# Parameter
+# ~~~~
+GET           /parameters                                                  controllers.JParameters.fetch()
+POST           /parameters                                                  controllers.JParameters.save()
 # Batch
 # ~~~~
 GET           /launch/absences                                             controllers.Batches.absence()

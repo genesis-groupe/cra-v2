@@ -6,6 +6,7 @@ import org.apache.commons.io.FileUtils
 import org.bson.types.ObjectId
 import org.joda.time.DateTime
 import play.libs.F
+import play.libs.F.Tuple
 import scala.collection.convert.WrapAsJava._
 import scala.collection.convert.WrapAsScala._
 import utils._
@@ -18,7 +19,7 @@ object PDF {
 
   // Absence
 
-  def getAbsenceData(absence: JAbsence) = DbFile.fetch(absence.fileId)
+  def getAbsenceData(absence: JAbsence): Tuple[ObjectId, Array[Byte]] = DbFile.fetch(absence.fileId)
 
   def createAbsenceData(jAbsences: java.util.List[JAbsence]): F.Tuple[ObjectId, Array[Byte]] = createAbsenceData(jAbsences.toList)
 
