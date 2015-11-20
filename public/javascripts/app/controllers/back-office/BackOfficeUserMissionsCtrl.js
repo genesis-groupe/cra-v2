@@ -85,9 +85,9 @@ app.controller('BackOfficeUserMissionsCtrl', ['$scope', '$http', '$log', '$locat
                 });
         };
 
-        $scope.unassignMission = function (am) {
+        $scope.unAssignMission = function (am) {
             if ($window.confirm("Êtes vous sur de vouloir désaffecter cette mission ?")) {
-                var route = jsRoutes.controllers.JUsers.unassignMission($scope.form.user.username, am.mission.id);
+                var route = jsRoutes.controllers.JUsers.unAssignMission($scope.form.user.username, am.mission.id);
                 $http({
                     'method': route.method,
                     'url': route.url,
