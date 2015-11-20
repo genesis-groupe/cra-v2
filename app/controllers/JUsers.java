@@ -99,7 +99,7 @@ public class JUsers extends Controller {
                 return internalServerError(toJson("La mission est déjà utilisée dans un CRA, désaffectation impossible"));
             }
         }
-        if(JClaim.exist(user)){
+        if(JClaim.exist(user,mission)){
             return internalServerError(toJson("Des frais de déplacement existent pour cette mission, désaffectation impossible"));
         }
         JUser.unassignMission(username, missionId);

@@ -171,8 +171,11 @@ public class JClaim extends Model implements MongoModel {
         return claims;
     }
 
-    public static Boolean exist(JUser user){
-        return MorphiaPlugin.ds().getCount(queryToFindMeByUser(user)) > 0;
+    public static Boolean exist(final JUser user, final JMission mission){
+
+        final Query<JClaim> q = queryToFindMeByUser(user)
+                .field("missionId").equal(mission.id);
+        return MorphiaPlugin.ds().getCount(q) > 0;
     }
 
     public static ObjectId delete(final String id) {
