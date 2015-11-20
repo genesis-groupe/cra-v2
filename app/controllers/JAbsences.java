@@ -2,16 +2,16 @@ package controllers;
 
 import com.google.common.collect.Lists;
 import constants.AbsenceType;
+import constants.GenesisMissionCode;
+import constants.MissionType;
 import dto.AbsenceDTO;
 import exceptions.AbsenceAlreadyExistException;
 import export.PDF;
 import http.ResponseCache;
 import mail.MailerAbsence;
-import models.DbFile;
-import models.JAbsence;
-import models.JDay;
-import models.JUser;
+import models.*;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.bson.types.ObjectId;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;
@@ -126,6 +126,10 @@ public class JAbsences extends Controller {
 			final List<ValidationError> errors = Lists.newArrayList();
 			if(missionId == null) {
 				errors.add(new ValidationError("missionId", "Le motif est requis."));
+			}
+			final JMission mission = JMission.fetch(missionId);
+			if(GenesisMissionCode.AE.name().equals(mission.code) && StringUtils.isEmpty(comment)){
+				errors.add(new ValidationError("comment", "Veuillez saisir le motif d'absence exceptionnel (naissance, décès, ...)."));
 			}
 			if(Boolean.TRUE.equals(day)) {
 				if(startDate == null) {

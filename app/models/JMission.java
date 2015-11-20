@@ -38,6 +38,7 @@ import java.util.Map;
  */
 @Entity("Mission")
 @Indexes({
+	         @Index(value = "id"),
 	         @Index(value = "code, customerId", unique = true),
 	         @Index("customerId"),
 	         @Index("_startDate")
