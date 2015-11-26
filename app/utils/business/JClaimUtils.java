@@ -1,15 +1,16 @@
 package utils.business;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Predicate;
-import com.google.common.collect.Collections2;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
+import com.google.common.collect.*;
 import constants.ClaimType;
+import constants.MissionAllowanceType;
 import models.JAffectedMission;
 import models.JClaim;
 import models.JUser;
 import org.apache.commons.lang3.StringUtils;
 import play.libs.F;
+import scala.collection.JavaConversions$;
 import utils.FormatterUtils;
 import utils.time.TimeUtils;
 
@@ -75,7 +76,24 @@ public class JClaimUtils {
             });
 
             if (!cs.isEmpty()) {
-                s.add(String.format("%s * %s", cs.size(), FormatterUtils.toCurrency(am.feeAmount)));
+                final ImmutableMultimap.Builder<BigDecimal, JClaim> builder = ImmutableMultimap.builder();
+                for(JClaim c : cs){
+                    builder.put(c.amount,c);
+                }
+                final ImmutableMultimap<BigDecimal, JClaim> build = builder.build();
+                final ImmutableCollection<Map.Entry<BigDecimal, JClaim>> entries = build.entries();
+
+                if(build.size() == 1){
+                    final BigDecimal next = build.keySet().iterator().next();
+                    s.add(String.format("%s * %s", build.get(next).size(), FormatterUtils.toCurrency(next)));
+                }else{
+                    List<String> a = new ArrayList<>();
+                    for(final BigDecimal bd : build.keySet()){
+                        a.add(String.format("%s * %s", build.get(bd).size(), FormatterUtils.toCurrency(bd)));
+                    }
+                    final Joiner joiner = Joiner.on(" / ");
+                    s.add(joiner.join(a));
+                }
             }
         }
         if (!s.isEmpty()) {
