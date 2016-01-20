@@ -40,19 +40,26 @@ public class WeekDTO {
 			for(Integer weekNumber : weeks.keySet()) {
 				result.add(new WeekDTO(weekNumber, weeks.get(weekNumber), missions, year, month));
 			}
-			if(month == DateTimeConstants.DECEMBER || month == DateTimeConstants.JANUARY) {
+			if(month == DateTimeConstants.DECEMBER) {
 				Collections.sort(result, new Comparator<WeekDTO>() {
 					@Override
 					public int compare(final WeekDTO w1, final WeekDTO w2) {
 						if(w1.number == 1) return 1;
 						else if(w2.number == 1) return -1;
-						else if(w1.number == 53) return -1;
+						else return w1.number.compareTo(w2.number);
+					}
+				});
+			}
+			if(month == DateTimeConstants.JANUARY) {
+				Collections.sort(result, new Comparator<WeekDTO>() {
+					@Override
+					public int compare(final WeekDTO w1, final WeekDTO w2) {
+						if(w1.number == 53) return -1;
 						else if(w2.number == 53) return -1;
 						else return w1.number.compareTo(w2.number);
 					}
 				});
 			}
-
 			return result;
 		} else {
 			return Lists.newArrayList();
