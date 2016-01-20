@@ -45,7 +45,7 @@ public class WeekDTO {
 					@Override
 					public int compare(final WeekDTO w1, final WeekDTO w2) {
 						if(w1.number == 1 && w2.number != 1) return 1;
-						else if(w1.number != 1 && w2.number == 1) return 1;
+						else if(w1.number != 1 && w2.number == 1) return -1;
 						else return w1.number.compareTo(w2.number);
 					}
 				});
